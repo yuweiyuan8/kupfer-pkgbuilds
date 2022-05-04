@@ -1,0 +1,41 @@
+#!/usr/bin/ash
+
+# Original by: Danct12 <danct12@disroot.org>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+source /usr/lib/initcpio/hooks/kupfer-functions.sh
+
+run_hook() {
+	export rwopt=rw
+	export init=/sbin/init
+
+	eval "$(cat /etc/kupfer/deviceinfo)"
+	deviceinfo_partitions_data="$deviceinfo_partitions_data"
+
+	for _cryptroot in "/dev/disk/by-label/kupfer_cryptroot" "$deviceinfo_partitions_data" /dev/sd*[0-9] ; do
+		if [ -e "$_cryptroot" ] && scan_partitions "$_cryptroot" "LABEL=kupfer_cryptroot"; then
+			echo "exporting cryptroot='$RESULT'!"
+			export cryptroot="$RESULT"
+			break
+		fi
+	done
+
+	if [ -z "$cryptroot" ]; then
+		echo "Failed to find a partition labeled kupfer_cryptroot. Erroring out..."
+		unset cryptroot
+		return 1
+	else
+		echo "Found kupfer_cryptroot at: $cryptroot"
+	fi
+	
+	if cryptsetup isLuks "$cryptroot"; then
+		echo "Device is encrypted, starting osk-sdl."
+		until cryptsetup status cryptroot | grep -qw active; do
+			osk-sdl -G -d $cryptroot -n cryptroot -c /etc/osk.conf
+		done
+		export root="/dev/mapper/cryptroot"
+	else
+		echo "kupfer_cryptroot is not encrypted. Erroring out..."
+		return 1
+	fi
+}
