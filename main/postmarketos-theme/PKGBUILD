@@ -1,0 +1,38 @@
+_mode=host
+pkgname=postmarketos-theme
+pkgdesc="GTK themes adjusted for Kupfer adapted from postmarketOS"
+pkgver=0.6.0
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+)
+license=(GPL-3.0-or-later)
+url=https://gitlab.com/postmarketOS/postmarketos-tweaks
+makedepends=(
+    meson
+    ninja
+    sassc
+)
+_commit=64af90ada3ae687355b012274a61e7349e0236aa
+source=(
+    "git+https://gitlab.com/postmarketOS/postmarketos-theme.git#commit=$_commit"
+)
+sha256sums=(
+    SKIP
+)
+
+pkgver() {
+    cd "$pkgname"
+    git describe --long "$_commit" | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+    arch-meson ${pkgname} output
+    ninja -C output
+}
+
+package() {
+    DESTDIR="$pkgdir" meson install --no-rebuild -C output
+}
