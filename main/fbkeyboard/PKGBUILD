@@ -1,0 +1,39 @@
+_mode=host
+pkgname=fbkeyboard
+pkgdesc="Framebuffer softkeyboard for use on devices with touchscreen input like smartphones"
+pkgver=0.4.r0.g03d3845
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+)
+license=(GPL-3.0-or-later)
+url=https://gitlab.com/postmarketOS/postmarketos-tweaks
+makedepends=(
+    meson
+    ninja
+    sassc
+)
+_commit=03d3845af0403f4b036347f6b894b9e8ee4d1e02
+source=(
+    "git+https://github.com/bakonyiferenc/fbkeyboard.git#commit=$_commit"
+)
+sha256sums=(
+    SKIP
+)
+
+pkgver() {
+    cd "$pkgname"
+    git describe --long --tags "$_commit" | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+    cd "$pkgname"
+    make
+}
+
+package() {
+    cd "$pkgname"
+    install -Dm755 fbkeyboard "$pkgdir"/usr/bin/fbkeyboard
+}
