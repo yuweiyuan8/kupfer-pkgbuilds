@@ -15,6 +15,7 @@ makedepends=(
     ninja
     sassc
 )
+depends=(freetype2)
 _commit=03d3845af0403f4b036347f6b894b9e8ee4d1e02
 source=(
     "git+https://github.com/bakonyiferenc/fbkeyboard.git#commit=$_commit"
