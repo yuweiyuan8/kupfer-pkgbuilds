@@ -2,7 +2,7 @@ _mode=host
 pkgname=fbkeyboard
 pkgdesc="Framebuffer softkeyboard for use on devices with touchscreen input like smartphones"
 pkgver=0.4.r0.g03d3845
-pkgrel=1
+pkgrel=2
 _arches=all
 arch=(
     x86_64
@@ -18,9 +18,11 @@ makedepends=(
 _commit=03d3845af0403f4b036347f6b894b9e8ee4d1e02
 source=(
     "git+https://github.com/bakonyiferenc/fbkeyboard.git#commit=$_commit"
+    fbkeyboard.service
 )
 sha256sums=(
     SKIP
+    e855bca857d76cf08932decc5eb5250c25c4782143e29404a44cdc074af1402f
 )
 
 pkgver() {
@@ -34,6 +36,7 @@ build() {
 }
 
 package() {
+    install -Dm644 fbkeyboard.service "$pkgdir"/usr/lib/systemd/system/fbkeyboard.service
     cd "$pkgname"
     install -Dm755 fbkeyboard "$pkgdir"/usr/bin/fbkeyboard
 }
