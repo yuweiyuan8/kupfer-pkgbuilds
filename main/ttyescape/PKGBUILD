@@ -1,0 +1,42 @@
+# Original PKGBUILD Maintainer: Adam Thiede <me@adamthiede.com>
+# https://github.com/elagost/Pine64-Arch
+# Kupfer: Syboxez
+_mode=host
+pkgname=ttyescape
+pkgver=1.0.2
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+)
+license=(GPL3)
+url=https://gitlab.com/postmarketOS/ttyescape
+depends=(
+    buffyboard
+    terminus-font
+    kbd
+    hkdm
+)
+
+pkgdesc="Daemon to allow users to escape to a tty"
+
+_commit="1d026799d173180f9fffdd1c3ee0aec6845670e0"
+_pmaports_commit="029cf83cf152acd1c3a3f2fd99eafe9344403faa"
+
+source=(
+    "git+https://gitlab.com/postmarketOS/ttyescape.git#commit=${_commit}"
+    "https://gitlab.com/postmarketOS/pmaports/-/raw/${_pmaports_commit}/main/ttyescape/etc-conf-d-ttyescape.conf"
+)
+
+sha256sums=(
+    SKIP
+    f2e26a783392de2281ae7df8068cc5a573b87e5f882b6edf8ff85b22d423867c
+)
+
+package() {
+    install -Dm755 "${srcdir}/${pkgname}/togglevt.sh" "${pkgdir}/usr/bin/togglevt.sh"
+    sed -i -e 's/chvt 1/chvt 7/' "${pkgdir}/usr/bin/togglevt.sh"
+    install -Dm644 "${srcdir}/${pkgname}/ttyescape-hkdm.toml" "${pkgdir}/etc/hkdm/config.d/ttyescape.toml"
+    install -Dm644 "${srcdir}/etc-conf-d-ttyescape.conf" "${pkgdir}/etc/conf.d/ttyescape.conf"
+}
