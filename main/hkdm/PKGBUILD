@@ -1,0 +1,46 @@
+# Original PKGBUILD Maintainer: Adam Thiede <me@adamthiede.com>
+# https://github.com/elagost/Pine64-Arch
+# Kupfer: Syboxez
+_mode=host
+pkgname=hkdm
+pkgver=0.1.8
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+)
+license=(GPL3)
+url=https://gitlab.com/postmarketOS/hkdm
+makedepends=(
+    rust
+    libevdev
+)
+
+pkgdesc="Lighter-weight hotkey daemon"
+
+_commit="5aaeb165e9240073d57c0b4083cd1c95c6c79048"
+
+source=(
+    "git+https://gitlab.com/postmarketOS/hkdm.git#commit=${_commit}"
+    hkdm.service
+)
+
+sha256sums=(
+    SKIP
+    a2e3fa1340e485b3b73c071b7dab7e60b74cf7f50533f22526b8f29133645419
+)
+
+build() {
+    cd ${srcdir}/hkdm
+    cargo fetch --locked
+    cargo build --frozen --no-default-features --release
+    cargo test --frozen --no-default-features
+}
+
+package() {
+    cd "${srcdir}/hkdm"
+    install -Dm644 hkdm.example.toml ${pkgdir}/etc/hkdm/config.d/hkdm.example
+    install -Dm755 target/release/hkdm ${pkgdir}/usr/bin/hkdm
+    install -Dm644 ${srcdir}/hkdm.service ${pkgdir}/usr/lib/systemd/system/hkdm.service
+}
