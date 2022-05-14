@@ -1,0 +1,60 @@
+# Original PKGBUILD Maintainer: Adam Thiede <me@adamthiede.com>
+# https://github.com/elagost/Pine64-Arch
+# Kupfer: Syboxez
+_mode=host
+pkgname=buffyboard
+pkgver=0.2.0
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+)
+license=(GPL3)
+url=https://gitlab.com/cherrypicker/buffyboard
+depends=(libinput)
+makedepends=(
+    meson
+    libinput
+    libxkbcommon
+    linux-headers
+    udev
+)
+
+pkgdesc="Touch-enabled framebuffer keyboard (not only) for vampire slayers"
+
+_buffy_commit=c8f58b3413fce14da71af455f5fb20c93d83e3e1
+_lv_drivers_commit="33983bcb0a9bfd0a4cf44dba67617b9f537e76f3"
+_lvgl_commit="a2b555e096f7d401b5d8e877a6b5e81ff81c747a"
+_squeek2lvgl_commit="e3ce01bc38020b21bc61844fa1fed1a4f41097c5"
+
+source=(
+    "git+https://gitlab.com/cherrypicker/buffyboard.git#commit=${_buffy_commit}"
+    "git+https://github.com/lvgl/lv_drivers.git#commit=${_lv_drivers_commit}"
+    "git+https://github.com/lvgl/lvgl.git#commit=${_lvgl_commit}"
+    "git+https://gitlab.com/cherrypicker/squeek2lvgl.git#commit=${_squeek2lvgl_commit}"
+    buffyboard.service
+)
+
+sha256sums=(
+    SKIP
+    SKIP
+    SKIP
+    SKIP
+    6ce6788a7bee977b9c3cfdb9b7bb7d576acde94d2769d9841e1e5668eb8718b0
+)
+
+build() {
+    mkdir -p "${srcdir}/${pkgname}/lvgl" "${srcdir}/${pkgname}/lv_drivers" "${srcdir}/${pkgname}/squeek2lvgl"
+    mv "${srcdir}/lvgl/"* "${srcdir}/${pkgname}/lvgl"
+    mv "${srcdir}/lv_drivers/"* "${srcdir}/${pkgname}/lv_drivers"
+    mv "${srcdir}/squeek2lvgl/"* "${srcdir}/${pkgname}/squeek2lvgl"
+    arch-meson ${pkgname} _build
+    meson compile -C _build
+}
+
+package() {
+    DESTDIR=${pkgdir} meson install --no-rebuild -C _build
+    
+    install -Dm644 buffyboard.service ${pkgdir}/usr/lib/systemd/system/buffyboard.service
+}
