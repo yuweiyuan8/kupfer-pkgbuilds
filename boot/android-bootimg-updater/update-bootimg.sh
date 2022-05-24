@@ -14,14 +14,26 @@ fi
 
 eval "$(cat /etc/kupfer/deviceinfo)"
 
+unset initramfs_file
+if [ -f "/boot/initramfs-initsquared.img" ]; then
+  initramfs_file="/boot/initramfs-initsquared.img"
+elif [ -f "/boot/initramfs-linux.img" ]; then
+  initramfs_file="/boot/initramfs-linux.img"
+elif [ -z "$1" ]; then
+  echo "/boot/initramfs-initsquared.img or /boot/initramfs-linux.img not found. initramfs location must be specified via argument."
+else
+  initramfs_file="$1"
+fi
+
 dir=$(mktemp -d)
 
-cat /boot/Image.gz "/boot/dtbs/$deviceinfo_dtb.dtb" >$dir/Image.gz-dtb
+cat /boot/Image.gz "/boot/dtbs/$deviceinfo_dtb.dtb" >"$dir/Image.gz-dtb"
 
-echo "Generating new aboot.img"
+echo "Generating new aboot.img with initramfs $initramfs_file"
+
 mkbootimg \
-  --kernel $dir/Image.gz-dtb \
-  --ramdisk /boot/initramfs-linux.img \
+  --kernel "$dir/Image.gz-dtb" \
+  --ramdisk "$initramfs_file" \
   --base "$deviceinfo_flash_offset_base" \
   --second_offset "$deviceinfo_flash_offset_second" \
   --kernel_offset "$deviceinfo_flash_offset_kernel" \
@@ -85,3 +97,4 @@ else
 fi
 
 rm -rf "$dir" /tmp/aboot.bin /tmp/aboot.img
+
