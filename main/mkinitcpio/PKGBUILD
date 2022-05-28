@@ -43,10 +43,28 @@ install=mkinitcpio.install
 source=(
     "https://sources.archlinux.org/other/mkinitcpio/mkinitcpio-$pkgver.tar.gz"
     0001-use-gzip-for-compression-by-default.patch
+    mkinitcpio.conf
+    50-mkinitcpio-overwrite.hook
+    mkinitcpio-overwrite.sh
+    rootfsresize-hooks.sh
+    rootfsresize-install.sh
+    rootfsdetect-hooks.sh
+    rootfsdetect-install.sh
+    firmwaresearchpath-hooks.sh
+    firmwaresearchpath-install.sh
 )
 sha256sums=(
-    8f2811250b852ab78375bf90e1a7430daa132e57e128b0f6eaadddd9b27bbc63
+    SKIP
     f65d40212674d03afa0168a3dbec3ec00b7908406f44964daea34d992cd2f57e
+    c85cd5366de8493f8508e8f599b870a7c255266fb0eb10ec6ddbcfdeeb4c0223
+    fa966823232e3af7f7da50c8f542a945f8c42f78dddef9db22098ca288a10966
+    9c4cf2ae50562c49e2beb33ab6029f60ad0012fb3eaf12b13cca1e46872839d9
+    e3a09446da7a206ee86421052ae0e4880d89ed61a50eb85c92fb51475d4eafc9
+    db93d6f37af2b1cbd9b71b9b225112adec62f811d358182d953f6d8042e83247
+    afee8e3a581ca71e2992bfd97c813ff5ea778532e4b2b910884431e8b1c5a8c6
+    f5ce06e187f2410ee2bdd065ad83d796bf475e734a36e9cb81a02d382348fa09
+    7d8c5477627a04e0706539f83adf710b7e00f859b84a27a6ae05ff85ed17f1e6
+    aa39559c187dd3aac392481b5a6d57c34ca08196d00ac32e1f5f9013a93681a1
 )
 
 prepare() {
@@ -60,4 +78,14 @@ check() {
 
 package() {
     make -C "mkinitcpio-$pkgver" DESTDIR="$pkgdir" install
+    
+    install -Dm644 "$srcdir"/mkinitcpio.conf "$pkgdir"/etc/kupfer/mkinitcpio.conf
+    install -Dm644 "$srcdir"/50-mkinitcpio-overwrite.hook "$pkgdir"/usr/share/libalpm/hooks/50-mkinitcpio-overwrite.hook
+    install -Dm755 "$srcdir"/mkinitcpio-overwrite.sh "$pkgdir"/usr/bin/mkinitcpio-overwrite
+    install -Dm755 "$srcdir"/rootfsresize-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/rootfsresize
+    install -Dm755 "$srcdir"/rootfsresize-install.sh "$pkgdir"/usr/lib/initcpio/install/rootfsresize
+    install -Dm755 "$srcdir"/rootfsdetect-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/rootfsdetect
+    install -Dm755 "$srcdir"/rootfsdetect-install.sh "$pkgdir"/usr/lib/initcpio/install/rootfsdetect
+    install -Dm755 "$srcdir"/firmwaresearchpath-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/firmwaresearchpath
+    install -Dm755 "$srcdir"/firmwaresearchpath-install.sh "$pkgdir"/usr/lib/initcpio/install/firmwaresearchpath
 }
