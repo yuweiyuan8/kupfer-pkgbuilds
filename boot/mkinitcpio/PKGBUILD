@@ -2,7 +2,7 @@ _mode=cross
 pkgname=mkinitcpio-kupfer
 pkgdesc="Modular initramfs image creation utility"
 pkgver=31
-pkgrel=1
+pkgrel=2
 _arches=all
 arch=(
     aarch64
