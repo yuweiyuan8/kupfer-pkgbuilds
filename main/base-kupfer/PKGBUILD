@@ -1,7 +1,7 @@
 _mode=cross
 pkgname=base-kupfer
 pkgver=0.3
-pkgrel=1
+pkgrel=2
 _arches=specific
 arch=(aarch64)
 license=(MIT)

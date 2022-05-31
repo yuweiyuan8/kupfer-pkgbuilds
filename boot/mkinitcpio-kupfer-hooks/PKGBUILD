@@ -1,10 +1,10 @@
 _mode=cross
 pkgname=mkinitcpio-kupfer-hooks
 pkgdesc="Kupfer-specific hooks to aide in device booting"
-pkgver=0.1
-pkgrel=1
-_arches=all
-arch=(all)
+pkgver=0.2
+pkgrel=5
+_arches=specific
+arch=(any)
 license=(GPL3)
 depends=(
     mkinitcpio
@@ -24,16 +24,16 @@ source=(
     hooks-functions.sh
 )
 sha256sums=(
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-    SKIP
-    SKIP
+    c85cd5366de8493f8508e8f599b870a7c255266fb0eb10ec6ddbcfdeeb4c0223
+    fa966823232e3af7f7da50c8f542a945f8c42f78dddef9db22098ca288a10966
+    9c4cf2ae50562c49e2beb33ab6029f60ad0012fb3eaf12b13cca1e46872839d9
+    e3a09446da7a206ee86421052ae0e4880d89ed61a50eb85c92fb51475d4eafc9
+    db93d6f37af2b1cbd9b71b9b225112adec62f811d358182d953f6d8042e83247
+    1322245ffb6a36abd9644c8ffa666c4a58ec40500076c7c9a57ea2ad93c83408
+    71482baeaee53977ea19ffe3c033f0e978fc09b3bddf4d6510eb81df343c461e
+    7d8c5477627a04e0706539f83adf710b7e00f859b84a27a6ae05ff85ed17f1e6
+    aa39559c187dd3aac392481b5a6d57c34ca08196d00ac32e1f5f9013a93681a1
+    806a858088266bd43af8a72225dce04e1a28474d71cb0cf725730e1edfea17cd
 )
 
 package() {
