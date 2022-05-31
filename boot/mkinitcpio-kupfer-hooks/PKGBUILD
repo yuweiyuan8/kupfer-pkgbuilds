@@ -1,15 +1,15 @@
 _mode=cross
 pkgname=mkinitcpio-kupfer-hooks
 pkgdesc="Kupfer-specific hooks to aide in device booting"
-pkgver=0.1
-pkgrel=1
-_arches=all
-arch=(all)
+pkgver=0.2
+pkgrel=8
+_arches=specific
+arch=(any)
 license=(GPL3)
 depends=(
     mkinitcpio
+    "base-kupfer>=0.3"
 )
-conflicts=("base-kupfer<0.3")
 install=mkinitcpio-kupfer-hooks.install
 source=(
     mkinitcpio.conf
@@ -21,7 +21,7 @@ source=(
     rootfsdetect-install.sh
     firmwaresearchpath-hooks.sh
     firmwaresearchpath-install.sh
-    hooks-functions.sh
+    kupfer-functions.sh
 )
 sha256sums=(
     c85cd5366de8493f8508e8f599b870a7c255266fb0eb10ec6ddbcfdeeb4c0223
@@ -46,5 +46,5 @@ package() {
     install -Dm755 "$srcdir"/rootfsdetect-install.sh "$pkgdir"/usr/lib/initcpio/install/rootfsdetect
     install -Dm755 "$srcdir"/firmwaresearchpath-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/firmwaresearchpath
     install -Dm755 "$srcdir"/firmwaresearchpath-install.sh "$pkgdir"/usr/lib/initcpio/install/firmwaresearchpath
-    install -Dm755 "$srcdir"/hooks-functions.sh "$pkgdir"/usr/lib/initcpio/hooks/hooks-functions.sh
+    install -Dm755 "$srcdir"/kupfer-functions.sh "$pkgdir"/usr/lib/initcpio/hooks/kupfer-functions.sh
 }
