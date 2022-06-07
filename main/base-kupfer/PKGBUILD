@@ -1,7 +1,7 @@
 _mode=cross
 pkgname=base-kupfer
-pkgver=0.2
-pkgrel=2
+pkgver=0.3
+pkgrel=1
 _arches=specific
 arch=(aarch64)
 license=(MIT)
@@ -23,52 +23,25 @@ depends=(
     wpa_supplicant
     xdg-user-dirs
     mkinitcpio-kupfer
+    mkinitcpio-kupfer-hooks
     parted
 )
-install=base-kupfer.install
 source=(
-    mkinitcpio.conf
-    50-mkinitcpio-overwrite.hook
-    mkinitcpio-overwrite.sh
     ignore-power-key.conf
     locale.conf
-    rootfsresize-hooks.sh
-    rootfsresize-install.sh
-    rootfsdetect-hooks.sh
-    rootfsdetect-install.sh
-    firmwaresearchpath-hooks.sh
-    firmwaresearchpath-install.sh
     random-mac.conf
     fstab
 )
 sha256sums=(
-    c85cd5366de8493f8508e8f599b870a7c255266fb0eb10ec6ddbcfdeeb4c0223
-    fa966823232e3af7f7da50c8f542a945f8c42f78dddef9db22098ca288a10966
-    9c4cf2ae50562c49e2beb33ab6029f60ad0012fb3eaf12b13cca1e46872839d9
     784c1237e8c553fd9717e4caf8b996abb4631348b27e3425bb8e39bd7e617476
     151b67da4450eb4f81143835f2342a4302284a0f336c4e13bb9de69009611c9b
-    e3a09446da7a206ee86421052ae0e4880d89ed61a50eb85c92fb51475d4eafc9
-    db93d6f37af2b1cbd9b71b9b225112adec62f811d358182d953f6d8042e83247
-    afee8e3a581ca71e2992bfd97c813ff5ea778532e4b2b910884431e8b1c5a8c6
-    f5ce06e187f2410ee2bdd065ad83d796bf475e734a36e9cb81a02d382348fa09
-    7d8c5477627a04e0706539f83adf710b7e00f859b84a27a6ae05ff85ed17f1e6
-    aa39559c187dd3aac392481b5a6d57c34ca08196d00ac32e1f5f9013a93681a1
     06198df3c43c556d0fe8388fafc22527342714e163235cc7792cba18e3a903b2
     c18ae14419f2550e6d27b856729ac63f06f152c2592220d2ddc0460e562a02a4
 )
 
 package() {
-    install -Dm644 "$srcdir"/mkinitcpio.conf "$pkgdir"/etc/kupfer/mkinitcpio.conf
-    install -Dm644 "$srcdir"/50-mkinitcpio-overwrite.hook "$pkgdir"/usr/share/libalpm/hooks/50-mkinitcpio-overwrite.hook
-    install -Dm755 "$srcdir"/mkinitcpio-overwrite.sh "$pkgdir"/usr/bin/mkinitcpio-overwrite
     install -Dm644 "$srcdir"/random-mac.conf "$pkgdir"/etc/NetworkManager/conf.d/random-mac.conf
     install -Dm644 "$srcdir"/ignore-power-key.conf "$pkgdir"/etc/systemd/logind.conf.d/ignore-power-key.conf
     install -Dm644 "$srcdir"/locale.conf "$pkgdir"/etc/locale.conf
-    install -Dm755 "$srcdir"/rootfsresize-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/rootfsresize
-    install -Dm755 "$srcdir"/rootfsresize-install.sh "$pkgdir"/usr/lib/initcpio/install/rootfsresize
-    install -Dm755 "$srcdir"/rootfsdetect-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/rootfsdetect
-    install -Dm755 "$srcdir"/rootfsdetect-install.sh "$pkgdir"/usr/lib/initcpio/install/rootfsdetect
-    install -Dm755 "$srcdir"/firmwaresearchpath-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/firmwaresearchpath
-    install -Dm755 "$srcdir"/firmwaresearchpath-install.sh "$pkgdir"/usr/lib/initcpio/install/firmwaresearchpath
     install -Dm644 "$srcdir"/fstab "$pkgdir"/etc/fstab
 }
