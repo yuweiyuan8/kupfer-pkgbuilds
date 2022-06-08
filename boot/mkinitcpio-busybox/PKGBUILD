@@ -2,7 +2,7 @@ _mode=cross
 pkgname=mkinitcpio-busybox-kupfer
 pkgdesc="Base initramfs tools"
 pkgver=1.35.0
-pkgrel=1
+pkgrel=2
 _arches=all
 arch=(
     aarch64
