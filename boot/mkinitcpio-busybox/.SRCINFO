@@ -1,7 +1,7 @@
 pkgbase = mkinitcpio-busybox-kupfer
 	pkgdesc = Base initramfs tools
 	pkgver = 1.35.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://www.busybox.net
 	arch = aarch64
 	arch = x86_64

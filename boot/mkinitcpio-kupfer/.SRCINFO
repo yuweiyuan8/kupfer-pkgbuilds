@@ -1,7 +1,7 @@
 pkgbase = mkinitcpio-kupfer
 	pkgdesc = Modular initramfs image creation utility
 	pkgver = 31
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/archlinux/mkinitcpio
 	install = mkinitcpio.install
 	arch = aarch64
