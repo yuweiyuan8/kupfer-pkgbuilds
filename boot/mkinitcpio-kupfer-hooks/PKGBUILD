@@ -21,8 +21,10 @@ source=(
     rootfsdetect-install.sh
     firmwaresearchpath-hooks.sh
     firmwaresearchpath-install.sh
+    hooks-functions.sh
 )
 sha256sums=(
+    SKIP
     SKIP
     SKIP
     SKIP
