@@ -1,0 +1,20 @@
+pkgbase = initsquared
+	pkgdesc = Init shim hook to bootstrap a secondary initramfs
+	pkgver = 0.1
+	pkgrel = 9
+	install = initsquared.install
+	arch = any
+	license = GPL-3.0-or-later
+	depends = mkinitcpio-kupfer-hooks
+	source = initsquared-hook
+	source = initsquared-install
+	source = initsquared.preset
+	source = mkinitcpio-initsquared.conf
+	source = initsquared.install
+	sha256sums = 7ba1c4e51394452839aff19b555cd03c5c9ebb0bf06d3f11cc1705dc2e737332
+	sha256sums = d5f43bf430b1dc7f27f31c1c6c019534d1d8455ccd351494fb1d390d9362cd41
+	sha256sums = f827b705d358d9300934bd551e64ee1f6073ea54da9252001800bb9873abdc98
+	sha256sums = 7d1b7e0b41237259b265b2f86869ca2ba63f91717fd90a2c79ab58956f5849c3
+	sha256sums = 0c81a939e7fa4c94bca2a1a2951e4bef352e88fb15375b1c4026bcb3b2027055
+
+pkgname = initsquared

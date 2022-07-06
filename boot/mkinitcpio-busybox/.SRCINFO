@@ -14,6 +14,6 @@ pkgbase = mkinitcpio-busybox-kupfer
 	source = https://busybox.net/downloads/busybox-1.35.0.tar.bz2
 	source = config
 	sha256sums = faeeb244c35a348a334f4a59e44626ee870fb07b6884d68c10ae8bc19f83a694
-	sha256sums = 1e6c9c0c31a01b84cbafc7e46505ef915233e4fef86e6695e3957c655dfa73c5
+	sha256sums = bc8005345b9f4db627dd3784aba22e027167ba15921181b9833eae809330c786
 
 pkgname = mkinitcpio-busybox-kupfer
