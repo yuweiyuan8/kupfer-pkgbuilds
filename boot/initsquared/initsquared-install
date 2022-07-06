@@ -1,0 +1,21 @@
+#!/bin/bash
+
+build() {
+    #add_binary zstd
+    add_binary blkid
+    add_binary losetup
+    add_file /usr/lib/initcpio/hooks/hooks-functions.sh
+    add_file /etc/kupfer/deviceinfo
+    add_runscript
+}
+
+help() {
+    cat <<HELPEOF
+This provides a support for bootstrapping another
+initramfs for use with devices with a
+static initram partition size, such as
+Android devices
+HELPEOF
+}
+
+# vim: set ft=sh ts=4 sw=4 et:
