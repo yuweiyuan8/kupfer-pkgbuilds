@@ -1,0 +1,18 @@
+_mode=cross
+pkgname=meson-cross-wrapper
+pkgver=0.3
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+)
+license=(MIT)
+source=(meson-cross-wrapper.sh)
+sha256sums=(
+    8ca0dabe9eeafb851a15947c4644642be486efeb1fc749a3ce9d7f9a493807ef
+)
+
+package() {
+    install -Dm755 meson-cross-wrapper.sh "$pkgdir"/usr/lib/meson/cross/bin/meson
+}
