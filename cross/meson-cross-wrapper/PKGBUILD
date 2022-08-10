@@ -1,16 +1,13 @@
 _mode=cross
 pkgname=meson-cross-wrapper
-pkgver=0.3
+pkgver=0.4
 pkgrel=1
-_arches=all
-arch=(
-    x86_64
-    aarch64
-)
+_arches=specific
+arch=(any)
 license=(MIT)
 source=(meson-cross-wrapper.sh)
 sha256sums=(
-    8ca0dabe9eeafb851a15947c4644642be486efeb1fc749a3ce9d7f9a493807ef
+    65e80531d6b733cd4dfe52c375f3f842769e5a71990f9e0118036c54bd420aca
 )
 
 package() {
