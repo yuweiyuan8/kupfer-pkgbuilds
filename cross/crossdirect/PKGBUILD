@@ -16,11 +16,12 @@ _mode=host
 pkgname=crossdirect
 pkgdesc="Wrappers to launch native cross compilers in foreign chroots"
 pkgver=3
-pkgrel=8
+pkgrel=9
 _arches=all
 arch=(
     x86_64
     aarch64
+    armv7h
 )
 license=(MIT)
 url=https://postmarketOS.org
@@ -33,17 +34,19 @@ source=(
 )
 sha256sums=(
     da3565de436face442763eefa1d754b8a05f11861167e550889867805fe1ad1d
-    44e06724655bdf38cc12ee3a551c6619b54487f5ee7e666ac2bd47e14181d90f
+    4c5309cca835221d1db8152183424c2f518183b54418d160871c3138db766479
     1709bb11d7e23f861638979906f3e162b45ad974473364b6ae09e4a570d00fb7
     ba90e8375efa48b1af3bb360ae1cdfa72c3fe745cf9b61a7940b2193f410d9fd
 )
+
+__target_arches="x86_64 armhf armv7h aarch64"
 
 build() {
     export CARCH
     cd "$srcdir"
     # Architectures and binaries
-    _archs="x86_64 armhf armv7 aarch64"
-    for _arch in $_archs; do
+    echo "${__target_arches}"
+    for _arch in ${__target_arches}; do
         [ "$_arch" == "$CARCH" ] && continue
         _hostspec="$("$srcdir"/arch_to_hostspec "$_arch" "$_arch" || true)"
         [ -z "$_hostspec" ] && echo "skipping $_arch" && continue
@@ -63,7 +66,6 @@ build() {
 
 package() {
     # Architectures and binaries
-    _archs="x86_64 armhf armv7 aarch64"
     _bins="c++ cc cpp g++ gcc clang clang++"
 
     # Rust: qemu-linker
@@ -71,7 +73,7 @@ package() {
         "$pkgdir/usr/lib/crossdirect/rust-qemu-linker"
 
     # Iterate over architectures
-    for _arch in $_archs; do
+    for _arch in ${__target_arches}; do
         [ "$_arch" == "$CARCH" ] && continue
 
         # Put arch-specific crossdirect wrapper in arch-specific bin folder

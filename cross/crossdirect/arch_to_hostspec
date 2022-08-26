@@ -12,6 +12,9 @@ case "$hostarch" in
             aarch64)
                 echo "aarch64-linux-gnu"
                 ;;
+            armv7h)
+                echo "arm-unknown-linux-gnueabihf"
+                ;;
             *)
                 echo "unknown target arch '$targetarch' for host arch '$hostarch'" >&2
                 exit 1
@@ -26,6 +29,13 @@ case "$hostarch" in
             *)
                 echo "unknown target arch '$targetarch' for host arch '$hostarch'" >&2
                 exit 1
+                ;;
+        esac
+        ;;
+    armv7h)
+        case "$targetarch" in
+            armv7h)
+                echo "armv7l-unknown-linux-gnueabihf"
                 ;;
         esac
         ;;
