@@ -6,6 +6,7 @@ _arches=all
 arch=(
     aarch64
     x86_64
+    armv7h
 )
 license=(MIT)
 depends=(mkbootimg-git)

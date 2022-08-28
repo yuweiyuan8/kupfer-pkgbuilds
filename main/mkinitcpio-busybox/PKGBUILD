@@ -6,6 +6,7 @@ pkgrel=1
 _arches=all
 arch=(
     aarch64
+    armv7h
     x86_64
 )
 license=(GPL)

@@ -3,7 +3,10 @@ pkgname=boot-android-common
 pkgver=0.1
 pkgrel=2
 _arches=specific
-arch=(aarch64)
+arch=(
+    aarch64
+    armv7h
+)
 license=(MIT)
 depends=(
     boot-android-bootimg-updater

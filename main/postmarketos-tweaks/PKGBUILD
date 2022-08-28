@@ -5,8 +5,9 @@ pkgver=0.11.0.r0.gfd4cfbe
 pkgrel=1
 _arches=all
 arch=(
-    x86_64
     aarch64
+    armv7h
+    x86_64
 )
 license=(GPL-3.0-or-later)
 url=https://gitlab.com/postmarketOS/postmarketos-tweaks

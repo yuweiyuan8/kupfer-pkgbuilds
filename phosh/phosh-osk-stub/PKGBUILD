@@ -5,8 +5,9 @@ pkgver=0.20.0.r0.g0087213
 pkgrel=1
 _arches=all
 arch=(
-    x86_64
     aarch64
+    armv7h
+    x86_64
 )
 license=(GPL3+)
 url=https://gitlab.gnome.org/guidog/phosh-osk-stub

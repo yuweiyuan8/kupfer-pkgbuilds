@@ -5,8 +5,9 @@ pkgver=0.0.0+git20220520.r0.g17c1c2a
 pkgrel=1
 _arches=all
 arch=(
-    x86_64
     aarch64
+    armv7h
+    x86_64
 )
 license=(GPL)
 url=https://source.puri.sm/Librem5/feedbackd

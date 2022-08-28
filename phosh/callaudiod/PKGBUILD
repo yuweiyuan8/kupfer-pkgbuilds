@@ -5,8 +5,9 @@ pkgver=0.1.4.r0.ga7ca6ce
 pkgrel=1
 _arches=all
 arch=(
-    x86_64
     aarch64
+    armv7h
+    x86_64
 )
 license=(GPL3)
 url=https://gitlab.com/mobian1/callaudiod

@@ -2,8 +2,12 @@ _mode=cross
 pkgname=base-kupfer
 pkgver=0.2
 pkgrel=3
-_arches=specific
-arch=(aarch64)
+_arches=all
+arch=(
+    aarch64
+    armv7h
+    x86_64
+)
 license=(MIT)
 depends=(
     alsa-ucm-conf

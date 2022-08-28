@@ -5,8 +5,9 @@ pkgver=42.2.r0.ge33b965
 pkgrel=1
 _arches=all
 arch=(
-    x86_64
     aarch64
+    armv7h
+    x86_64
 )
 license=(GPL)
 url=https://gitlab.gnome.org/GNOME/console

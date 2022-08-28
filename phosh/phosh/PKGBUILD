@@ -5,8 +5,9 @@ pkgver=0.20.0.r24.gab581c04
 pkgrel=1
 _arches=all
 arch=(
-    x86_64
     aarch64
+    armv7h
+    x86_64
 )
 license=(GPL)
 url=https://gitlab.gnome.org/World/Phosh/phosh

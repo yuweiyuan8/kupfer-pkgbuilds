@@ -5,8 +5,9 @@ pkgver=0.21.0.r0.g1a58a23
 pkgrel=1
 _arches=all
 arch=(
-    x86_64
     aarch64
+    armv7h
+    x86_64
 )
 license=(GPL)
 url=https://gitlab.gnome.org/World/Phosh/phoc

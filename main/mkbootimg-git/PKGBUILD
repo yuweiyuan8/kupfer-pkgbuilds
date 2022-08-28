@@ -2,8 +2,12 @@ _mode=cross
 pkgname=mkbootimg-git
 pkgver=r254.ba2684e
 pkgrel=1
-_arches=specific
-arch=(aarch64)
+_arches=all
+arch=(
+    aarch64
+    armv7h
+    x86_64
+)
 license=(
     Apache
     MIT
