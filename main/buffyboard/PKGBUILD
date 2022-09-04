@@ -4,7 +4,7 @@
 _mode=host
 pkgname=buffyboard
 pkgver=0.2.0
-pkgrel=1
+pkgrel=2
 _arches=all
 arch=(
     x86_64
@@ -45,7 +45,7 @@ sha256sums=(
     SKIP
     6ce6788a7bee977b9c3cfdb9b7bb7d576acde94d2769d9841e1e5668eb8718b0
     c3db6f3346e070896973caa0acbd2ccc9c486280dcf25ee1d7a3e67b78beb741
-    e1ff8edae3c5c5fd399f18aee8c1e7a6619a64ee21d3d481e19203b3a3b9ca64
+    2412039bf61ac4d7be7cb96077bac72df94e7ca98f17df3c772b05b109000e19
 )
 
 build() {

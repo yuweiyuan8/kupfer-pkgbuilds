@@ -2,6 +2,7 @@
 
 build() {
   add_binary buffyboard
+  add_module uinput
 
   add_runscript
 }
