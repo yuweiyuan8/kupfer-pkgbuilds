@@ -40,3 +40,5 @@ package() {
     install -Dm644 "${srcdir}/${pkgname}/ttyescape-hkdm.toml" "${pkgdir}/etc/hkdm/config.d/ttyescape.toml"
     install -Dm644 "${srcdir}/etc-conf-d-ttyescape.conf" "${pkgdir}/etc/conf.d/ttyescape.conf"
 }
+
+_enable_services="hkdm"
