@@ -34,6 +34,8 @@ source=(
     "git+https://github.com/lvgl/lvgl.git#commit=${_lvgl_commit}"
     "git+https://gitlab.com/cherrypicker/squeek2lvgl.git#commit=${_squeek2lvgl_commit}"
     buffyboard.service
+    buffyboard-hooks.sh
+    buffyboard-install.sh
 )
 
 sha256sums=(
@@ -42,6 +44,8 @@ sha256sums=(
     SKIP
     SKIP
     6ce6788a7bee977b9c3cfdb9b7bb7d576acde94d2769d9841e1e5668eb8718b0
+    c3db6f3346e070896973caa0acbd2ccc9c486280dcf25ee1d7a3e67b78beb741
+    e1ff8edae3c5c5fd399f18aee8c1e7a6619a64ee21d3d481e19203b3a3b9ca64
 )
 
 build() {
@@ -57,4 +61,6 @@ package() {
     DESTDIR=${pkgdir} meson install --no-rebuild -C _build
     
     install -Dm644 buffyboard.service ${pkgdir}/usr/lib/systemd/system/buffyboard.service
+    install -Dm644 buffyboard-hooks.sh ${pkgdir}/usr/lib/initcpio/hooks/buffyboard
+    install -Dm644 buffyboard-install.sh ${pkgdir}/usr/lib/initcpio/install/buffyboard
 }
