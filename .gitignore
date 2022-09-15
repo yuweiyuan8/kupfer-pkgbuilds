@@ -4,3 +4,5 @@ pkg/
 
 prebuilts*
 .last_built
+SRCINFO
+srcinfo_meta.json
