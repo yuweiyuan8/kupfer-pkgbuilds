@@ -1,0 +1,35 @@
+_mode=host
+pkgname=unudhcpd
+pkgdesc="An extremely basic DHCP server that only issues 1 IP address to any client that sends a DHCP{OFFER,REQUEST}"
+pkgver=0.2.1.r0.g0ebb915
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+)
+license=(GPL3)
+makedepends=(
+    meson
+)
+_commit=0ebb91545ee4f9c0f0e190c1c1e77dd562c1f8a8
+source=(
+    "git+https://gitlab.com/postmarketOS/unudhcpd.git#commit=$_commit"
+)
+sha256sums=(
+    SKIP
+)
+
+pkgver() {
+    cd "$pkgname"
+    git describe --long "$_commit" | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+    arch-meson ${pkgname} _build
+    meson compile -C _build
+}
+
+package() {
+    DESTDIR="$pkgdir" meson install -C _build
+}
