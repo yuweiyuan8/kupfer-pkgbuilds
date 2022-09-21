@@ -1,3 +1,11 @@
+post_install() {
+  mkinitcpio -p initsquared
+}
+
+post_upgrade() {
+  mkinitcpio -p initsquared
+}
+
 post_remove() {
   rm -f /boot/initramfs-initsquared.img
 }

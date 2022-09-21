@@ -2,7 +2,7 @@
 _mode=host
 pkgname=initsquared
 pkgver=0.1
-pkgrel=7
+pkgrel=8
 _arches=specific
 arch=(any)
 license=(GPL-3.0-or-later)
@@ -25,7 +25,7 @@ sha256sums=(
     0813cae0264e8efde8c7314fbd0f9adb85d293dc07c7ca210f3930c61d865ca3
     f827b705d358d9300934bd551e64ee1f6073ea54da9252001800bb9873abdc98
     7d1b7e0b41237259b265b2f86869ca2ba63f91717fd90a2c79ab58956f5849c3
-    460feb2a939e4741a8d84780fefe792897989266a46e130f835a49e2ebac4dff
+    63e5f30553b463ac135473c42ff8f9d9a835fda2e353a5504cccaf82c9d2add4
 )
 
 package() {
