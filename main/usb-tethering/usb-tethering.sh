@@ -111,7 +111,13 @@ setup_usb_tethering_configfs() {
   echo "$(ls /sys/class/udc)" >$CONFIGFS/g1/UDC
 }
 
+if [ "$deviceinfo_disable_dhcpd" = "true" ]; then
+  echo "NOTE: start of dhcpd is disabled (deviceinfo_disable_dhcpd)"
+  return
+fi
+
 # And we go.
 setup_usb_tethering_configfs
-ip address add 172.16.42.1/24 dev usb0 || true
-ip link set usb0 up
+(
+  unudhcpd -i usb0 -s 172.16.42.1 -c 172.16.42.2
+) &
