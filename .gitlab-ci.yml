@@ -10,6 +10,7 @@ variables:
 default:
   image: registry.gitlab.com/kupfer/kupferbootstrap:dev
   before_script:
+    - (cd /app && git remote update && git switch prawn/flavours && git log --max-count=1 && pip install -r requirements.txt)
     - mkdir -p /kupfer/{pkgbuilds,packages,prebuilts} /root/.cache/kupfer "$(dirname "$LOGFILE")"
     - mount --bind /kupfer/{packages,prebuilts}
     - for dir in /pkgbuilds /prebuilts; do mkdir -p "$dir" && mount --bind /kupfer"$dir" "$dir"; done
