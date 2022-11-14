@@ -4,7 +4,7 @@
 # The license above applies ONLY to this PKGBUILD and its included files and NOT osk-sdl.
 _mode=host
 pkgname=osk-sdl
-pkgver=0.67.r1.g41f67e2
+pkgver=0.67.1.r0.g41f67e2
 pkgrel=1
 _arches=all
 arch=(
