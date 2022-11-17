@@ -137,7 +137,8 @@ def run_systemd_cmd(action: str = 'enable', units: list[str] = [], dry_run: bool
 
 def cmd_apply():
     units = parse_all(parsed.config_dir)
-    for action, action_units in [('enable', units.enable), ('disable', units.disable)]:
+    # disable units first to avoid conflicts when enabling
+    for action, action_units in [('disable', units.disable), ('enable', units.enable)]:
         if action_units:
             run_systemd_cmd(action, action_units, dry_run=parsed.dry_run)
 
