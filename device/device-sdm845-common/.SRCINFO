@@ -1,8 +1,7 @@
 pkgbase = device-sdm845-common
 	pkgdesc = Common package for Qualcomm SDM845 devices
 	pkgver = 0.3
-	pkgrel = 3
-	install = sdm845-common.install
+	pkgrel = 4
 	arch = aarch64
 	license = MIT
 	depends = linux-firmware-qcom
@@ -17,8 +16,10 @@ pkgbase = device-sdm845-common
 	provides = alsa-ucm-conf
 	conflicts = alsa-ucm-conf
 	source = sdm845-common.conf
+	source = sdm845.txt
 	source = git+https://gitlab.com/sdm845-mainline/alsa-ucm-conf.git/#commit=621c71fd5f5742c60d38766ebb2d1bd3b863a2a4
 	sha256sums = 557bde976b39d767305b870f0de1f5572bda953afc7d8ea153bf4b6cd2ae913d
+	sha256sums = b6834f1eb597cf5846ce730f52d3b24b4b3eaca66388d2b8611d1ca5e37dbdf5
 	sha256sums = SKIP
 
 pkgname = device-sdm845-common
