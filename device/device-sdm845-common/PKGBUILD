@@ -27,11 +27,13 @@ source=(
     sdm845-common.conf
     sdm845.txt
     "https://gitlab.com/postmarketOS/pmaports/-/raw/${_pmos_commit}/device/community/soc-qcom-sdm845/90-feedbackd-pmi8998.rules"
+    "call_audio_idle_suspend_workaround.sh" # TODO: replace with download
     "git+https://gitlab.com/sdm845-mainline/alsa-ucm-conf.git/#commit=$_ucm_commit"
 )
 sha256sums=(
     557bde976b39d767305b870f0de1f5572bda953afc7d8ea153bf4b6cd2ae913d
     b6834f1eb597cf5846ce730f52d3b24b4b3eaca66388d2b8611d1ca5e37dbdf5
+    897f2f5533644668b63e5fbff917e050af1cfb7472553c3ee520388c932ab6f9
     6628c602f12c044aa8456eebca8eccaefce6be76a99788488a4c9220d98d8b65
     SKIP
 )
@@ -40,7 +42,9 @@ package() {
     install -Dm644 "$srcdir"/sdm845-common.conf "$pkgdir"/etc/kupfer/mkinitcpio.conf.d/sdm845-common.conf
     install -Dm644 "$srcdir"/sdm845.txt "$pkgdir"/etc/kupfer/systemd/sdm845.txt
 
+
     # taken from pmos:
+    install -Dm755 "$srcdir"/call_audio_idle_suspend_workaround.sh "$pkgdir"/usr/bin/call_audio_idle_suspend_workaround
     install -Dm644 "$srcdir"/90-feedbackd-pmi8998.rules "$pkgdir"/usr/lib/udev/rules.d/90-feedbackd-pmi8998.rules
 
     # alsa ucm config
