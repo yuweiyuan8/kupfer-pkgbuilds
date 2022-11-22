@@ -1,5 +1,5 @@
 pkgbase = linux-sdm845
-	pkgver = 6.0.3
+	pkgver = 6.1.0
 	pkgrel = 1
 	url = https://gitlab.com/sdm845-mainline/linux
 	arch = aarch64
@@ -12,7 +12,7 @@ pkgbase = linux-sdm845
 	makedepends = dtc
 	makedepends = cpio
 	options = !strip
-	source = linux::git+https://gitlab.com/sdm845-mainline/linux.git#commit=1b7bc6e0d99b53bd89f39a331b8bfbcf464a4ce2
+	source = linux::git+https://gitlab.com/sdm845-mainline/linux.git#commit=71319708cebd9b74a3f2cce259380a142fdff65d
 	source = extra_config
 	source = linux.preset
 	source = 60-linux.hook
