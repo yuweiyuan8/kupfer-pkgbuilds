@@ -2,7 +2,7 @@ _mode=cross
 _nodeps=true
 pkgname=device-sdm845-common
 pkgdesc="Common package for Qualcomm SDM845 devices"
-pkgver=0.4
+pkgver=0.5
 pkgrel=1
 _arches=specific
 arch=(aarch64)
@@ -19,8 +19,9 @@ depends=(
     tqftpserv-git
     boot-android-common
     meta-modem-qcom
+    q6voiced
 )
-_ucm_commit=621c71fd5f5742c60d38766ebb2d1bd3b863a2a4
+_ucm_commit=d6553584189732d6d3964f462187a54ee1fed5bc
 _pmos_commit=64dc758fed3d08a876a74bd7724cde00bdedd32f
 source=(
     sdm845-common.conf
@@ -31,7 +32,7 @@ source=(
 sha256sums=(
     557bde976b39d767305b870f0de1f5572bda953afc7d8ea153bf4b6cd2ae913d
     b6834f1eb597cf5846ce730f52d3b24b4b3eaca66388d2b8611d1ca5e37dbdf5
-    897f2f5533644668b63e5fbff917e050af1cfb7472553c3ee520388c932ab6f9
+    6628c602f12c044aa8456eebca8eccaefce6be76a99788488a4c9220d98d8b65
     SKIP
 )
 
