@@ -1,0 +1,13 @@
+pkgbase = tinyalsa
+	pkgver = v2.0.0.r45.g4fbaeef
+	pkgrel = 1
+	url = https://github.com/tinyalsa/tinyalsa
+	arch = aarch64
+	license = custom
+	makedepends = cmake
+	makedepends = git
+	depends = glibc
+	source = git+https://github.com/tinyalsa/tinyalsa#commit=4fbaeef03cd1cb216e0f356c0433ca70f8b9c464
+	sha256sums = SKIP
+
+pkgname = tinyalsa
