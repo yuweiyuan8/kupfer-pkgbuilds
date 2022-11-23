@@ -1,14 +1,16 @@
 pkgbase = device-sdm845-xiaomi-beryllium
-	pkgver = 0.4
+	pkgver = 0.5
 	pkgrel = 1
 	arch = aarch64
 	license = MIT
 	makedepends = devicepkg-helpers
 	source = https://gitlab.com/postmarketOS/pmaports/-/raw/1770b37b601337b256258fcfbc18e53f895c9d81/device/community/device-xiaomi-beryllium/deviceinfo
+	source = https://gitlab.com/postmarketOS/pmaports/-/raw/2decd7eb54475fed90a6d55be9d1885642a26ecb/device/community/device-xiaomi-beryllium/q6voiced.conf
 	source = xiaomi-beryllium.conf
 	source = machine-info
 	source = rootston.ini
 	sha256sums = 5c22068d2e45fcb72dcd42c795acb98cae9c329f86b4d7567c7b08e3a67135cb
+	sha256sums = 21b8395e7729c785c0446be5d88e52873b0fa46812111b91bcd5c3af7dde24da
 	sha256sums = 6591192b2696f0b6594e5c8724075752158eab2ea537d77c4d9bc3ead61f305e
 	sha256sums = 7729d6a89258b470cadd48cfbc704bab7791501c53f45f50737dea6b441a3171
 	sha256sums = 3ecab866e26f244bd0e449f6b56b109f362aed3fa6c95738428b222cc5766cd6
