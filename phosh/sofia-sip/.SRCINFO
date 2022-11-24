@@ -1,0 +1,17 @@
+pkgbase = sofia-sip
+	pkgdesc = An open-source SIP User-Agent library
+	pkgver = 1.13.7
+	pkgrel = 2
+	url = http://sofia-sip.sourceforge.net
+	arch = x86_64
+	arch = i686
+	arch = armv7h
+	arch = aarch64
+	license = LGPL
+	depends = glib2
+	depends = openssl
+	depends = gawk
+	source = sofia-sip-1.13.7.tar.gz::https://github.com/freeswitch/sofia-sip/archive/refs/tags/v1.13.7.tar.gz
+	sha256sums = 3bdcbe80a066c9cafa8d947d51512b86ed56bf2cdbb25dbe9b8eef6a8bab6a25
+
+pkgname = sofia-sip

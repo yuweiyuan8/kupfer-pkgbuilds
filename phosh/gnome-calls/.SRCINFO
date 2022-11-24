@@ -1,0 +1,31 @@
+pkgbase = gnome-calls
+	pkgdesc = Make and receive PSTN phone calls
+	pkgver = 43.0
+	pkgrel = 1
+	url = https://gitlab.gnome.org/GNOME/calls
+	arch = x86_64
+	arch = armv7h
+	arch = aarch64
+	license = GPL
+	makedepends = meson
+	makedepends = ninja
+	makedepends = vala
+	makedepends = git
+	makedepends = python-docutils
+	depends = evolution-data-server
+	depends = feedbackd
+	depends = folks
+	depends = gobject-introspection
+	depends = gom
+	depends = gtk3
+	depends = libhandy
+	depends = libpeas
+	depends = modemmanager
+	depends = callaudiod
+	depends = sofia-sip
+	depends = wayland-protocols
+	replaces = calls
+	source = git+https://gitlab.gnome.org/GNOME/calls.git#commit=fcee1a3b6a03383974d67ca67701eba246a646ae
+	sha256sums = SKIP
+
+pkgname = gnome-calls
