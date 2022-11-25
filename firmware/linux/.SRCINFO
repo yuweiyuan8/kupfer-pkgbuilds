@@ -1,6 +1,6 @@
 pkgbase = firmware-linux
 	pkgdesc = Firmware files for Linux
-	pkgver = 20220411.705f19a
+	pkgver = 20221109.60310c2
 	pkgrel = 1
 	url = https://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git;a=summary
 	arch = any
@@ -10,7 +10,7 @@ pkgbase = firmware-linux
 	makedepends = git
 	provides = linux-firmware
 	options = !strip
-	source = git+https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git#tag=20220411
+	source = git+https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git#tag=20221109
 	sha256sums = SKIP
 
 pkgname = linux-firmware-qcom
