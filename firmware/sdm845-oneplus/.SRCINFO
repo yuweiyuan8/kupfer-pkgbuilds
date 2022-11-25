@@ -1,10 +1,10 @@
 pkgbase = firmware-sdm845-oneplus
-	pkgver = 0.2
-	pkgrel = 2
+	pkgver = 0.3
+	pkgrel = 1
 	arch = aarch64
 	license = custom:Proprietary
 	options = !strip
-	source = git+https://gitlab.com/sdm845-mainline/firmware-oneplus-sdm845.git#branch=prepackaged-release
+	source = git+https://gitlab.com/sdm845-mainline/firmware-oneplus-sdm845.git#commit=895bb1c8dd0695635df354bbd713740af48e47ce
 	sha256sums = SKIP
 
 pkgname = firmware-sdm845-oneplus
