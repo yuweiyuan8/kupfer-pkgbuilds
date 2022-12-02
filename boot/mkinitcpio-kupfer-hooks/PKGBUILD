@@ -1,4 +1,5 @@
 _mode=cross
+_nodeps=true
 pkgname=mkinitcpio-kupfer-hooks
 pkgdesc="Kupfer-specific hooks to aide in device booting"
 pkgver=0.2

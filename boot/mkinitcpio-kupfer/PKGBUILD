@@ -1,4 +1,5 @@
 _mode=cross
+_nodeps=true
 pkgname=mkinitcpio-kupfer
 pkgdesc="Modular initramfs image creation utility"
 pkgver=31
