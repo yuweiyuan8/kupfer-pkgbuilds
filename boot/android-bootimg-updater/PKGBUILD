@@ -2,7 +2,7 @@ _mode=cross
 _nodeps=true
 pkgname=boot-android-bootimg-updater
 pkgver=0.4
-pkgrel=2
+pkgrel=1
 _arches=all
 arch=(
     aarch64

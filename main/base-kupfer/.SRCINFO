@@ -1,6 +1,6 @@
 pkgbase = base-kupfer
 	pkgver = 0.3
-	pkgrel = 3
+	pkgrel = 1
 	arch = aarch64
 	license = MIT
 	depends = alsa-ucm-conf

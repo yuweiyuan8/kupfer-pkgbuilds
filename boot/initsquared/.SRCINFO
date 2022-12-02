@@ -1,7 +1,7 @@
 pkgbase = initsquared
 	pkgdesc = Init shim hook to bootstrap a secondary initramfs
 	pkgver = 0.1
-	pkgrel = 9
+	pkgrel = 1
 	install = initsquared.install
 	arch = any
 	license = GPL-3.0-or-later

@@ -1,7 +1,7 @@
 pkgbase = mkinitcpio-kupfer-hooks
 	pkgdesc = Kupfer-specific hooks to aide in device booting
 	pkgver = 0.2
-	pkgrel = 8
+	pkgrel = 1
 	install = mkinitcpio-kupfer-hooks.install
 	arch = any
 	license = GPL3

@@ -1,6 +1,6 @@
 pkgbase = boot-android-bootimg-updater
 	pkgver = 0.4
-	pkgrel = 2
+	pkgrel = 1
 	install = android-bootimg-updater.install
 	arch = aarch64
 	arch = x86_64
