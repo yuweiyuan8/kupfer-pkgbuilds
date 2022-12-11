@@ -1,0 +1,16 @@
+pkgbase = boot-deploy
+	pkgver = 0.5.r13.g1f28c95
+	pkgrel = 1
+	arch = x86_64
+	arch = aarch64
+	arch = armv7h
+	license = GPL-2.0-or-later
+	depends = bc
+	source = git+https://gitlab.com/jenneron/boot-deploy.git#commit=1f28c95c45efb2a44c5027fd14850492a653ba5f
+	source = boot-deploy.conf
+	source = cmdline.txt
+	sha256sums = SKIP
+	sha256sums = 440330927f78ce0ad1ea387331e8b98b8c26c9ea1ddb53abeb5272900d99498b
+	sha256sums = 125acb2b357de3c47d0413bb6ecae34100dd58e364ca9f3e525967d19a3ca10b
+
+pkgname = boot-deploy

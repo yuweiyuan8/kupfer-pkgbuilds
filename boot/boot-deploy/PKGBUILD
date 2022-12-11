@@ -1,0 +1,46 @@
+_mode=cross
+_nodeps=true
+pkgname=boot-deploy
+pkgver=0.5.r13.g1f28c95
+pkgrel=1
+_arches=all
+arch=(
+    x86_64
+    aarch64
+    armv7h
+)
+license=(GPL-2.0-or-later)
+depends=(bc)
+
+_commit=1f28c95c45efb2a44c5027fd14850492a653ba5f
+source=(
+    "git+https://gitlab.com/jenneron/boot-deploy.git#commit=$_commit"
+    boot-deploy.conf
+    cmdline.txt
+)
+sha256sums=(
+    SKIP
+    440330927f78ce0ad1ea387331e8b98b8c26c9ea1ddb53abeb5272900d99498b
+    125acb2b357de3c47d0413bb6ecae34100dd58e364ca9f3e525967d19a3ca10b
+)
+
+pkgver() {
+    cd "$srcdir"/boot-deploy
+    git describe --long --tags "$_commit" | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+    cd "$srcdir"/boot-deploy
+
+    # There is no option to use mkbootimg, so replace the osm0sis fork with regular mkbootimg
+    sed s/mkbootimg-osm0sis/mkbootimg/g -i boot-deploy-functions.sh
+}
+
+package() {
+    cd "$srcdir"/boot-deploy
+    install -Dm755 boot-deploy "$pkgdir"/usr/bin/boot-deploy
+    install -Dm755 boot-deploy-functions.sh \
+        "$pkgdir"/usr/share/boot-deploy/boot-deploy-functions.sh
+    install -Dm644 "$srcdir"/boot-deploy.conf "$pkgdir"/etc/boot/boot-deploy
+    install -Dm644 "$srcdir"/cmdline.txt "$pkgdir"/etc/boot/cmdline.txt
+}
