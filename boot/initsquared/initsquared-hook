@@ -9,14 +9,20 @@ run_hook() {
 	set -e # Abort on error
 	unset LOOPDEV
 
+	if [ -n "$kupfer_boot_uuid" ]; then
+		query="UUID=${kupfer_boot_uuid}"
+	else
+		query="LABEL=kupfer_boot"
+	fi
+
 	for part in /dev/sd?[0-9]* ; do
-		! scan_partitions "$part" "LABEL=kupfer_boot" || break
+		! scan_partitions "$part" "$query" || break
 	done
 
 	echo "Result in run_hook is: $RESULT"
 
 	if [ -z "$RESULT" ]; then
-		panic "No partition labeled kupfer_boot found. Erroring out..."
+		panic "No boot partition ${query} found. Erroring out..."
 	fi
 
 	busybox mkdir -p /mnt
