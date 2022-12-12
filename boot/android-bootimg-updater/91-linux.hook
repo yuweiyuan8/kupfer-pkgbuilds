@@ -14,6 +14,6 @@ Target = etc/mkinitcpio-initsquared.conf
 Target = etc/kupfer/deviceinfo
 
 [Action]
-Description = Updating aboot.img...
+Description = Updating boot.img...
 When = PostTransaction
 Exec = /usr/bin/update-bootimg

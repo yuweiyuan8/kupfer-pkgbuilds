@@ -2,6 +2,3 @@ post_upgrade() {
   /usr/bin/update-bootimg
 }
 
-post_remove() {
-  rm -f boot/aboot.img
-}

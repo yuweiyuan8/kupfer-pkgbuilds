@@ -1,14 +1,15 @@
 pkgbase = boot-android-bootimg-updater
-	pkgver = 0.4
+	pkgver = 0.5
 	pkgrel = 1
 	install = android-bootimg-updater.install
 	arch = aarch64
 	arch = x86_64
 	license = MIT
 	depends = mkbootimg-git
+	depends = boot-deploy
 	source = 91-linux.hook
 	source = update-bootimg.sh
-	sha256sums = 01419bd235d098402fa78bf8127d229d2f8e4fb6f09ce9bc76b5df9e35e52479
-	sha256sums = b95a016a998a50e6a8ac345f6dec60ba9dcc00854d4a3603e9d201d8e566146b
+	sha256sums = f1bb3432f8be432f226baf638069689faad1b77e770d4df04e5ffa836d296774
+	sha256sums = 832ed430eee36ad4794d1a63d1e23a1c66959cce6b12f283d17e362da8be807e
 
 pkgname = boot-android-bootimg-updater
